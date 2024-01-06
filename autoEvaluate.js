@@ -63,6 +63,11 @@ if (document.querySelector(".group-name").innerHTML.includes("THÔNG TIN ĐÁNH 
 
     if (!isTeacherExist) {
         document.querySelector("input[title='Khác']").value = gv_ly_thuyet;
+        document.querySelectorAll(".radio").forEach((element) => {
+            if (element.parentElement.querySelector("label").innerText.includes("Khác")) {
+                element.click();
+            }
+        });
     }
 }
 
@@ -90,6 +95,7 @@ if (document.querySelector(".group-name").innerHTML.includes("THÔNG TIN ĐÁNH 
             if (element.parentElement.querySelector(`label[for="${element.id}"]`)) {
                 if (element.parentElement.querySelector(`label[for="${element.id}"]`).innerText.includes("Khác")) {
                     element.value = gv_thuc_hanh.join(", ");
+                    element.parentElement.querySelector("input[type='checkbox']").checked = true;
                 }
             }
         });
